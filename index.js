@@ -8,6 +8,8 @@ import items2Routes from "./routes/items2.routes.js"
 import items3Routes from "./routes/items3.routes.js"
 import loginRoutes from "./routes/login.routes.js";
 import { connectDB } from "./utils/mongodb.js";
+import hashRoutes from "./routes/hash.routes.js";
+import registerRoutes from "./routes/register.routes.js";
 
 const app = express();
 
@@ -21,5 +23,7 @@ app.use(itemsRoutes);
 // app.use(items2Routes);
 app.use(items3Routes);
 app.use(loginRoutes);
+app.use(hashRoutes);
+app.use(registerRoutes);
 
 app.listen(5000, console.log("http://localhost:5000"));
