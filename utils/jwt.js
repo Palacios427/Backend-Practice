@@ -3,7 +3,7 @@ import { Router } from "express";
 
 export const validateJWT = Router();
 
-validateJWT.use((req, res) => {
+validateJWT.use((req, res, next) => {
     let token = req.headers.authorization;
 
     if (!token) {
@@ -16,7 +16,6 @@ validateJWT.use((req, res) => {
     }
 
     jwt.verify(token, process.env.JWT, (error, decoded) => {
-        console.log(decoded.foo)
         if (error) {
             res.status(401).json({ msg: "error en la verificacion del token" + error.message });
         } else {
